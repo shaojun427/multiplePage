@@ -21,11 +21,14 @@ class Home extends Component {
   }
   componentWillMount() {
     let me = this;
-    store.subscribe(() => {
+    me.unsubscribe = store.subscribe(() => {
       me.setState({
         store: store.getState()
       })
     })
+  }
+  componentWillUnmount() {
+    this.unsubscribe();
   }
   changeHandle(e) {
     let me = this;
