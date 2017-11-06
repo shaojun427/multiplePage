@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "demo",
   "scripts": {
-    "build": "webpack -w",
+    "clear": "rm -rf dist&& mkdir dist",
+    "build": "npm run clear&& cross-env NODE_ENV=true webpack -p --progress",
+    "dev": "npm run clear&& webpack -w",
     "watch": "webpack-dev-server --content-base --inline --hot --host 0.0.0.0"
   },
   "keywords": [],
@@ -17,6 +19,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.1",
     "html-webpack-plugin": "^2.30.1",
